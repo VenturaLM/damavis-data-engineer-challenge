@@ -147,7 +147,15 @@ class Labyrinth_solver:
     
     def is_valid_move(self, node: Node, x: int, y: int) -> bool:
         """
+        ### Description
+        ---------------
+        Checks the feasibility of the rod's movement to the position (x, y).
 
+        ### Parameters
+        --------------
+        - `node`: current node.
+        - `x`: coordinate x.
+        - `y`: coordinate y.
         """        
         if node.orientation == "horizontal":
             if y - 1 >= 0 and y + 1 <= self.labyrinth_shape[1]:
@@ -260,6 +268,7 @@ class Labyrinth_solver:
                         ):
                             current_node.orientation = "horizontal"
 
+                # Compute rod position given a current_node position.
                 current_node.compute_rod_position()
 
             # Pop current off open list, add to closed list.
