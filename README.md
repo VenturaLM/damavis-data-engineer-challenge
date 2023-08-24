@@ -51,9 +51,49 @@ Regarding the constraints implemented within the algorithm, the following stand 
 
 6. The new position of the node must adhere to the constraints of the rod's area projection onto the maze, meaning that the $3 \times 1$ horizontal area and the $1 \times 3$ vertical area cannot overlap with blockages or maze walls.
 
-# How to run [WIP]
+# How to run
+## Via command line
+If you are using directly the command line, you have to enter to `damavis-data-engineer-challenge/src` and then run as follows:
 
-# Test cases
+    python3 main.py -L [test_1 test_2 ... test_n]
+
+    python3 main.py -L ../test/test_3.json ../test/test_4.json ../test/test_2.json
+
+## Via Visual Studio Code
+You can open the project at `damavis-data-engineer-challenge/` and then press `Add Configuration...`. This will deploy a `json` configuration file within your project where you can set up all the parameters:
+
+    {
+        // Use IntelliSense to learn about possible attributes.
+        // Hover to view descriptions of existing attributes.
+        // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "name": "Python: Current File",
+                "type": "python",
+                "request": "launch",
+                "program": "src/main.py",
+                "console": "integratedTerminal",
+                "justMyCode": true,
+                "args": [
+                    "-L",
+                    "test/test_1.json",
+                    "test/test_2.json",
+                    "test/test_3.json",
+                    "test/test_4.json",
+                    "test/test_5.json",
+                    "test/test_6.json",
+                ]
+            }
+        ]
+    }
+
+Then, you can press:
+1. `F5`: Run in debug mode.
+2. `Ctrl+F5`: Run without debug mode.
+
+
+# Main test cases
 ## Test 1
 
     labyrinth = [
@@ -105,6 +145,26 @@ Expected result: 2
     ]
 
 Expected result: 16
+
+# Extra test cases
+## Test 5
+
+    labyrinth = [
+        [".","."],
+        [".","."],
+        [".","."]
+    ]
+
+Expected result: "ValueError"
+
+## Test 6
+
+    labyrinth = [
+        [".",".","."],
+        [".",".","."]
+    ]
+
+Expected result: "ValueError"
 
 # References
 [1]: [Damavis studio](https://damavis.com/en/).
