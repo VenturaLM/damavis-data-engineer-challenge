@@ -164,6 +164,30 @@ Expected result: "ValueError"
 
 Expected result: "ValueError"
 
+## Test 7
+
+    labyrinth = [
+        [".",".","."],
+        [".",".","."],
+        [".",".","."]
+    ]
+
+    start = (-1, 0)
+
+Expected result: "ValueError"
+
+## Test 8
+
+    labyrinth = [
+        [".",".","."],
+        [".",".","."],
+        [".",".","."]
+    ]
+
+    end = (2, 999_999)
+
+Expected result: "ValueError"
+
 # References
 [1]: [Damavis studio](https://damavis.com/en/).
 
