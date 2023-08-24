@@ -209,7 +209,7 @@ class Labyrinth_solver:
                         return False
         return True
 
-    def a_star(self):
+    def a_star(self) -> list:
         """
         ### Description
         ---------------
@@ -322,7 +322,7 @@ class Labyrinth_solver:
                 # Add the child to the open list.
                 open_list.append(child)
 
-    def solve(self) -> int:
+    def solve(self) -> None:
         """
         ### Description
         ---------------
