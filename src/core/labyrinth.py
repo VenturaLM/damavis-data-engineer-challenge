@@ -56,11 +56,11 @@ class Labyrinth_solver:
 
         if not 2 <= self.labyrinth_shape[0] <= 999:
             raise ValueError(
-                f"[Labyrinth_solver] The number of rows of the labyrinth must be [3, 1000] (Current {self.labyrinth_shape[0] + 1})."
+                f"[Labyrinth_solver] The number of rows of the labyrinth must be [3, 1000] (Current: {self.labyrinth_shape[0] + 1})."
             )
         if not 2 <= self.labyrinth_shape[1] <= 999:
             raise ValueError(
-                f"[Labyrinth_solver] The number of columns of the labyrinth must be [3, 1000] (Current {self.labyrinth_shape[1] + 1})."
+                f"[Labyrinth_solver] The number of columns of the labyrinth must be [3, 1000] (Current: {self.labyrinth_shape[1] + 1})."
             )
 
     def _check_start(self) -> None:
@@ -72,11 +72,16 @@ class Labyrinth_solver:
         ### Raises
         ----------
         - `TypeError`: if `self.start` is not a `tuple` instance.
+        - `ValueError`: ending position out of bounds.
         """
         if not isinstance(self.start, tuple):
             raise TypeError(
                 f"[Labyrinth_solver] Inappropriate argument type in 'start' while initializing labyrinth: {type(self.start)}."
             )
+        if not 0 <= self.start[0] <= self.labyrinth_shape[0]:
+            raise ValueError(f"[Labyrinth_solver] Starting position at x coordinate out of bounds (Current: {self.start[0]} at {self.start} / Min-Max: 0-{self.labyrinth_shape[0]}).")
+        if not 0 <= self.start[1] <= self.labyrinth_shape[1]:
+            raise ValueError(f"[Labyrinth_solver] Starting position at y coordinate out of bounds (Current: {self.start[1]} at {self.start} / Min-Max: 0-{self.labyrinth_shape[1]}).")
 
     def _check_end(self) -> None:
         """
@@ -87,11 +92,16 @@ class Labyrinth_solver:
         ### Raises
         ----------
         - `TypeError`: if `self.end` is not a `tuple` instance.
+        - `ValueError`: ending position out of bounds.
         """
         if not isinstance(self.end, tuple):
             raise TypeError(
                 f"[Labyrinth_solver] Inappropriate argument type in 'end' while initializing labyrinth: {type(self.end)}."
             )
+        if not 0 <= self.end[0] <= self.labyrinth_shape[0]:
+            raise ValueError(f"[Labyrinth_solver] Ending position at x coordinate out of bounds (Current: {self.end[0]} at {self.end} / Min-Max: 0-{self.labyrinth_shape[0]}).")
+        if not 0 <= self.end[1] <= self.labyrinth_shape[1]:
+            raise ValueError(f"[Labyrinth_solver] Ending position at y coordinate out of bounds (Current: {self.end[1]} at {self.end} / Min-Max: 0-{self.labyrinth_shape[1]}).")
 
     def _read_labyrinth(self, path: str) -> None:
         """
